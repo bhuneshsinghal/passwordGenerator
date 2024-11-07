@@ -33,12 +33,12 @@ function App() {
       pass += str.charAt(char);
     }
     setPassword(pass);
-  }, [numberAllowed, characterAllowed, length])
+  }, [numberAllowed, characterAllowed, length, setPassword])
 
 
-  const passwordGenerator = useEffect(passwordGenUseCallBack, [numberAllowed, characterAllowed, length, setPassword]);
+  const passwordGenerator = useEffect(() => { passwordGenUseCallBack() }, [numberAllowed, characterAllowed, length, passwordGenUseCallBack]);
 
-  passwordGenerator
+
   return (
     <>
       <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 text-orange-700 bg-gray-400'>
